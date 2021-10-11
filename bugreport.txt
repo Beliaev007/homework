@@ -1,0 +1,12 @@
+ID
+Summary
+Component
+Severity
+Priority
+Steps
+Expected Result
+Actual Result
+Assignet To
+Autor
+Status
+Attachment
