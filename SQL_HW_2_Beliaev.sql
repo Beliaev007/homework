@@ -1,12 +1,12 @@
 
---1) Создать таблицу employees
+--1) РЎРѕР·РґР°С‚СЊ С‚Р°Р±Р»РёС†Сѓ employees
 create table employees (
 id serial primary key,
 employee_name varchar (50) not null
 );
 select * from employees
 
---2) Наполнить таблицу employee 70 строками.
+--2) РќР°РїРѕР»РЅРёС‚СЊ С‚Р°Р±Р»РёС†Сѓ employee 70 СЃС‚СЂРѕРєР°РјРё.
 insert into employees (id, employee_name)
 values(default, 'Viktor'),
 		(default, 'Pavel'),
@@ -77,12 +77,12 @@ values(default, 'Viktor'),
 		(default, 'Volf')
 		;
 	
-	--3) Создать таблицу salary
+	--3) РЎРѕР·РґР°С‚СЊ С‚Р°Р±Р»РёС†Сѓ salary
 		create table salary (
 		id serial primary key,
 		monthly_salary int not null);
 	
-	--4) Наполнить таблицу salary 15 строками:
+	--4) РќР°РїРѕР»РЅРёС‚СЊ С‚Р°Р±Р»РёС†Сѓ salary 15 СЃС‚СЂРѕРєР°РјРё:
 	insert into salary (id, monthly_salary)
 	values (default, 1000),
 		   (default, 1100),
@@ -101,15 +101,15 @@ values(default, 'Viktor'),
 		   (default, 2400),
 		   (default, 2500);
 		  
---5) Создать таблицу employee_salary		  
+--5) РЎРѕР·РґР°С‚СЊ С‚Р°Р±Р»РёС†Сѓ employee_salary		  
 create table employee_salary (
 id serial primary key,
 employee_id int not null unique,
 salary_id int not null
 );
 
---6) Наполнить таблицу employee_salary 40 строками:
--- в 10 строк из 40 вставить несуществующие employee_id
+--6) РќР°РїРѕР»РЅРёС‚СЊ С‚Р°Р±Р»РёС†Сѓ employee_salary 40 СЃС‚СЂРѕРєР°РјРё:
+-- Гў 10 Г±ГІГ°Г®ГЄ ГЁГ§ 40 ГўГ±ГІГ ГўГЁГІГј Г­ГҐГ±ГіГ№ГҐГ±ГІГўГіГѕГ№ГЁГҐ employee_id
 
 insert into employee_salary (id, employee_id, salary_id)
 values (default, 2, 2),
@@ -156,18 +156,18 @@ values (default, 2, 2),
 			 (default, 999, 40)
 	
 
---7) Создать таблицу roles
+--7) РЎРѕР·РґР°С‚СЊ С‚Р°Р±Р»РёС†Сѓ roles
 create table roles (
 id serial primary key,
 role_name int not null unique
 );
 
---8) Поменять тип столба role_name с int на varchar(30)
+--8) РџРѕРјРµРЅСЏС‚СЊ С‚РёРї СЃС‚РѕР»Р±Р° role_name СЃ int РЅР° varchar(30)
 alter table roles 
 alter column role_name type varchar (30)
 using role_name::varchar (30);
 
---9) Наполнить таблицу roles 20 строками:
+--9) РќР°РїРѕР»РЅРёС‚СЊ С‚Р°Р±Р»РёС†Сѓ roles 20 СЃС‚СЂРѕРєР°РјРё:
 insert into roles (id, role_name)
 values (default, 'Junior_Python_developer'),
 		(default, 'Middle_Python_developer'),
@@ -191,7 +191,7 @@ values (default, 'Junior_Python_developer'),
 		(default, 'Senior_Automation_QA_engineer');
 
 
--- 10) Создать таблицу roles_employee
+-- 10) РЎРѕР·РґР°С‚СЊ С‚Р°Р±Р»РёС†Сѓ roles_employee
 create table roles_employee (
 id serial primary key, 
 employee_id int not null unique,
