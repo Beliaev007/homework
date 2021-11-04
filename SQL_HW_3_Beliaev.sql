@@ -34,7 +34,7 @@ on s.id = es.salary_id
 full join employees e 
 on e.id = es.employee_id 
 where s.monthly_salary < 2000
-
+and e.employee_name is null
 
 
  --5. Найти всех работников кому не начислена ЗП.
