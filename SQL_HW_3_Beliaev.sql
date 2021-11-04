@@ -321,8 +321,12 @@ where r.role_name like '%QA_engineer%';
 
  --25. Вывести количество QA инженеров
  
- select count(role_name)
- from roles
+ select count(e.employee_name)
+ from employees e 
+ inner join roles_employee re 
+ on e.id = re.employee_id 
+ inner join roles r 
+ on re.role_id = r.id 
  where role_name like '%QA_engineer%';
 
 
@@ -331,7 +335,11 @@ where r.role_name like '%QA_engineer%';
  --26. Вывести количество Middle специалистов.
 
  select count(role_name)
- from roles
+  from employees e 
+ inner join roles_employee re 
+ on e.id = re.employee_id 
+ inner join roles r 
+ on re.role_id = r.id 
  where role_name like '%Middle%';
 
 
@@ -339,7 +347,11 @@ where r.role_name like '%QA_engineer%';
  --27. Вывести количество разработчиков
 
  select count(role_name)
- from roles
+  from employees e 
+ inner join roles_employee re 
+ on e.id = re.employee_id 
+ inner join roles r 
+ on re.role_id = r.id 
  where role_name like '%developer%';
  
  
@@ -362,13 +374,13 @@ where r.role_name like '%developer%';
 
 select e.employee_name, r.role_name, s.monthly_salary 
 from employees e 
-inner join roles_employee re 
+full join roles_employee re 
 on e.id  = re.employee_id 
-inner join roles r
+full join roles r
 on re.role_id = r.id 
 inner join employee_salary es 
 on es.employee_id = e.id 
-inner join salary s 
+full join salary s 
 on es.salary_id = s.id 
 order by s.monthly_salary 
 
@@ -411,13 +423,14 @@ order by s.monthly_salary
 
 select e.employee_name, r.role_name, s.monthly_salary 
 from employees e 
-inner join roles_employee re 
+full join roles_employee re 
 on e.id  = re.employee_id 
-inner join roles r
+full join roles r
 on re.role_id = r.id 
-inner join employee_salary es 
+full join employee_salary es 
 on es.employee_id = e.id 
-inner join salary s 
+full join salary s 
 on es.salary_id = s.id 
 where s.monthly_salary in(1100, 1500, 2000)
 order by s.monthly_salary 
+
