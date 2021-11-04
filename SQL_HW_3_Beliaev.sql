@@ -19,22 +19,25 @@ where s.monthly_salary < 2000;
  --3. Вывести все зарплатные позиции, но работник по ним не назначен. (ЗП есть, но не понятно кто её получает.)
 
 select s.monthly_salary, e.employee_name 
-from salary s left join employee_salary es
+from salary s inner join employee_salary es
 on s.id = es.salary_id 
-left join employees e 
+full join employees e 
 on e.id = es.employee_id 
 where e.employee_name is null;
+
+
 
 
 -- 4. Вывести все зарплатные позиции  меньше 2000 но работник по ним не назначен. (ЗП есть, но не понятно кто её получает.)
 
 select s.monthly_salary, e.employee_name 
-from salary s join employee_salary es
+from salary s inner join employee_salary es
 on s.id = es.salary_id 
 full join employees e 
 on e.id = es.employee_id 
 where s.monthly_salary < 2000
 and e.employee_name is null
+
 
 
  --5. Найти всех работников кому не начислена ЗП.
@@ -137,13 +140,13 @@ where r.role_name like '%Junior%'
  --13. Вывести имена и зарплаты Middle специалистов
 
 select e.employee_name, s.monthly_salary
-from employees e inner join roles_employee re 
+from employees e join roles_employee re 
 on e.id = re.employee_id 
-inner join roles r
+join roles r
 on re.role_id = r.id 
-inner join employee_salary es 
+join employee_salary es 
 on re.employee_id = es.employee_id 
-inner join salary s 
+full join salary s 
 on es.salary_id = s.id 
 where r.role_name like '%Middle%';
 
@@ -159,7 +162,7 @@ inner join roles r
 on re.role_id = r.id 
 inner join employee_salary es 
 on re.employee_id = es.employee_id 
-inner join salary s 
+full join salary s 
 on es.salary_id = s.id 
 where r.role_name like '%Senior%';
 
@@ -203,7 +206,7 @@ inner join roles r
 on re.role_id = r.id 
 inner join employee_salary es 
 on re.employee_id = es.employee_id 
-inner join salary s 
+full join salary s 
 on es.salary_id = s.id 
 where r.role_name like '%Junior_Python_developer%';
 
@@ -218,7 +221,7 @@ inner join roles r
 on re.role_id = r.id 
 inner join employee_salary es 
 on re.employee_id = es.employee_id 
-inner join salary s 
+full join salary s 
 on es.salary_id = s.id 
 where r.role_name like '%Middle_JavaScript_developer%';
 
@@ -235,7 +238,7 @@ inner join roles r
 on re.role_id = r.id 
 inner join employee_salary es 
 on re.employee_id = es.employee_id 
-inner join salary s 
+full join salary s 
 on es.salary_id = s.id 
 where r.role_name like '%Senior_Java_developer%';
 
